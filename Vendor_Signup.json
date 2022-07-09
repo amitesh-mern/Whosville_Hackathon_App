@@ -1,4 +1,4 @@
-{"Vendors" : {
+{"Vendors" : [{
        "VendorID":"Vendor1", "ID":"User1","Password":"Password1"
     },
  {
@@ -7,4 +7,4 @@
  {
        "VendorID":"Vendor3", "ID":"User3","Password":"Password3"
     }
- }
+ ]}
