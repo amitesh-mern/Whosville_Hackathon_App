@@ -1,6 +1,4 @@
-"Students" : [
-    {
+{"Students" : {
        "firstName":"Ram","lastName":"Sharma"
     }
-  ]
  }
