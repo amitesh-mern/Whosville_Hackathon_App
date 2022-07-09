@@ -1,4 +1,10 @@
-{"Students" : {
-       "firstName":"Amitesh","lastName":"Prabhakar"
+{"Users" : {
+       "ID":"User1","Password":"Password1"
+    },
+{
+       "ID":"User2","Password":"Password2"
+    },
+{
+       "ID":"User3","Password":"Password3"
     }
  }
