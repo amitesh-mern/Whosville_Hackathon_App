@@ -49,6 +49,7 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-close" data-bs-dismiss="modal">Close</button>
+          <button style="float: left;" type="button" class="btn btn-danger" data-bs-dismiss="modal">Register</button>
           <button onclick="userSignin()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Log in</button>
         </div>
 
@@ -86,6 +87,7 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-close" data-bs-dismiss="modal">Close</button>
+          <button style="float: left;" type="button" class="btn btn-danger" data-bs-dismiss="modal">Register</button>
           <button onclick="vendorSignin()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Log in</button>
         </div>
 
@@ -523,6 +525,7 @@
   <!-- Container (Services Section) -->
   <div id="services" class="container-fluid text-center active-user">
     <h2>SERVICES</h2>
+    <h4>Click on the Icons below to learn more about these services.</h4>
     <!-- <h4>One-stop shop for all your Appliance and Utility Services</h4> -->
     <br>
     <div class="row slideanim">
@@ -879,10 +882,11 @@
             <div class="panel-body text-center">
               <p><strong>Request Date : </strong> 7/1/2022</p>
               <p><strong>Model #: </strong> SMSFRDG123</p>
+              <p><strong id = "VT_Status_1">Status: New</strong></p>
             </div>
             <button class="btn btn-danger">View Details</button>
             <button class="btn btn-danger">Contact User</button>
-            <button class="btn btn-danger">Mark Resolved</button>
+            <button class="btn btn-danger" onclick="Close_VT_1()" id="VT_res_btn_1">Mark Resolved</button>
           </div>
         </div>
       </div>
@@ -895,10 +899,11 @@
             <div class="panel-body text-center">
               <p><strong>Request Date : </strong> 7/10/2022</p>
               <p><strong>Model # : </strong> SMSWSH345</p>
+              <p><strong id = "VT_Status_2">Status: Awaiting User Response</strong></p>
             </div>
             <button class="btn btn-danger">View Details</button>
             <button class="btn btn-danger">Contact User</button>
-            <button class="btn btn-danger">Mark Resolved</button>
+            <button class="btn btn-danger" onclick="Close_VT_2()" id="VT_res_btn_2">Mark Resolved</button>
           </div>
         </div>
       </div>
@@ -911,10 +916,11 @@
             <div class="panel-body text-center">
               <p><strong>Request Date : </strong> 7/11/2022</p>
               <p><strong>Model # : </strong> SMSWSD777</p>
+              <p><strong id = "VT_Status_3">Status: Active</strong></p>
             </div>
             <button class="btn btn-danger">View Details</button>
             <button class="btn btn-danger">Contact User</button>
-            <button class="btn btn-danger">Mark Resolved</button>
+            <button class="btn btn-danger" onclick="Close_VT_3()" id="VT_res_btn_3">Mark Resolved</button>
           </div>
         </div>
       </div>
@@ -927,10 +933,11 @@
             <div class="panel-body text-center">
               <p><strong>Request Date : </strong> 6/28/2022</p>
               <p><strong>Model # : </strong> SMSVCC9</p>
+              <p><strong id = "VT_Status_4">Status: Active</strong></p>
             </div>
             <button class="btn btn-danger">View Details</button>
             <button class="btn btn-danger">Contact User</button>
-            <button class="btn btn-danger">Mark Resolved</button>
+            <button class="btn btn-danger" onclick="Close_VT_4()" id="VT_res_btn_4">Mark Resolved</button>
           </div>
         </div>
       </div>

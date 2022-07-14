@@ -216,3 +216,23 @@ function Remove_API_4(){
   let res = confirm("Clicking OK will remove this API. Are you sure you want to proceed?")
   if(res) {document.getElementById('API_4').classList.add('inactivate-signin');}
 }
+
+function Close_VT_1(){
+  document.getElementById('VT_res_btn_1').classList.add('inactivate-signin');
+  document.getElementById('VT_Status_1').innerText = 'Status : Pending User Payment / Closure';
+}
+
+function Close_VT_2(){
+  document.getElementById('VT_res_btn_2').classList.add('inactivate-signin');
+  document.getElementById('VT_Status_2').innerText = 'Status : Pending User Payment / Closure';
+}
+
+function Close_VT_3(){
+  document.getElementById('VT_res_btn_3').classList.add('inactivate-signin');
+  document.getElementById('VT_Status_3').innerText = 'Status : Pending User Payment / Closure';
+}
+
+function Close_VT_4(){
+  document.getElementById('VT_res_btn_4').classList.add('inactivate-signin');
+  document.getElementById('VT_Status_4').innerText = 'Status : Pending User Payment / Closure';
+}
