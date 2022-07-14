@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Theme -->
+  <title>Whosville Hub</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="./styles.css" rel="stylesheet" type="text/css">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="User_Signup.json"></script>
+  <script src="script.js"></script>
+</head>
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+  <!-- The Modal -->
+  <div class="modal" id="User-Sign-in">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">User Login</h4>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="container-fluid bg-grey" style="display: grid; justify-content: start; justify-items: end;">
+            <div class="form-group">
+              <label>ID : </label>
+              <input name="User ID" id="User_ID" />
+            </div>
+            <div class="form-group">
+              <label for="Password">Password : </label>
+              <input name="Password" id="User_Password" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal">Close</button>
+          <button onclick="userSignin()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Log in</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="Vendor-Sign-in">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Vendor Login</h4>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="container-fluid bg-grey" style="display: grid; justify-content: start; justify-items: end;">
+            <div class="form-group">
+              <label for="Vnd_ID">Vendor ID : </label>
+              <input name="Vendor ID" id="Vendor_ID" />
+            </div>
+            <div class="form-group">
+              <label for="ID">User ID : </label>
+              <input name="User ID" id="Vendor_User" />
+            </div>
+            <div class="form-group">
+              <label for="Password">Password : </label>
+              <input name="Password" id="Vendor_Password" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal">Close</button>
+          <button onclick="vendorSignin()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Log in</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="User_Profile">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h2 class="modal-title text-center">User Profile</h2>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="container-fluid bg-grey" style="display: grid; justify-content: start; justify-items: end;">
+            <div class="form-group">
+              <label>First Name : </label>
+              <input id="First_Name" />
+            </div>
+            <div class="form-group">
+              <label>Last Name : </label>
+              <input id="Last_Name" />
+            </div>
+            <div class="form-group">
+              <label>Address 1 : </label>
+              <input id="Addresss_1" />
+            </div>
+            <div class="form-group">
+              <label>Address 2 : </label>
+              <input id="Address_2" />
+            </div>
+            <div class="form-group">
+              <label>City : </label>
+              <input id="City" />
+            </div>
+            <div class="form-group">
+              <label>State : </label>
+              <input id="State" />
+            </div>
+            <div class="form-group">
+              <label>ZIP : </label>
+              <input id="Zip" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Update</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="User_Devices">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h2 class="modal-title text-center">My Devices</h2>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="container-fluid bg-grey" style="display: grid; justify-content: start; justify-items: end;">
+            <div class="form-group">
+              <label>Device Name : </label>
+              <input id="Device_Name" />
+            </div>
+            <div class="form-group">
+              <label>Device Type : </label>
+              <input id="Device_Type" />
+            </div>
+            <div class="form-group">
+              <label>Vendor Name : </label>
+              <input id="Device_Vendor" />
+            </div>
+            <div class="form-group">
+              <label>Model # : </label>
+              <input id="Device_Model" />
+            </div>
+            <div class="form-group">
+              <label>Year : </label>
+              <input id="Device_Year" />
+            </div>
+            <div class="form-group">
+              <label>Color : </label>
+              <input id="Device_Color" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Add</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="User_Tickets">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h2 class="modal-title text-center">Create Ticket</h2>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="container-fluid bg-grey" style="justify-content: start; justify-items: end;">
+            <div class="container-fluid bg-grey">
+              <div class="row">
+                <div class="row">
+                  <div class="form-group">
+                    <input class="form-control" id="name" placeholder="Vendor" type="name" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <input class="form-control" id="email" placeholder="Device" type="email" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <textarea class="form-control" id="comments" name="comments" placeholder="Comment"
+                      rows="5"></textarea><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Create</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="Vendor_APIs">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h2 class="modal-title text-center">Add API</h2>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div style="justify-content: start; justify-items: end;">
+            <div class="container-fluid bg-grey">
+              <div class="row">
+                <div class="row">
+                  <input class="form-control" id="name" placeholder="API ID / Version #" type="name" required><br>
+                </div>
+                <div class="row">
+                  <input class="form-control" id="name" placeholder="API Description" type="name" required><br>
+                </div>
+                <div class="row">
+                  <input class="form-control" id="name" placeholder="API URL" type="name" required><br>
+                </div>
+                <div class="row">
+                  <input class="form-control" id="email" placeholder="API Parameters" type="name" required><br>
+                </div>
+                <div class="row">
+                  <textarea class="form-control" id="comments" name="comments" placeholder="API Documentation"
+                    rows="5"></textarea><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Save</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="Vendor_Devices">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h2 class="modal-title text-center">Add Device</h2>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="container-fluid bg-grey" style="display: grid; justify-content: start; justify-items: end;">
+            <div class="form-group">
+              <label>Device Type : </label>
+              <input id="Device_Type" />
+            </div>
+            <div class="form-group">
+              <label>Model # : </label>
+              <input id="Device_Model" />
+            </div>
+            <div class="form-group">
+              <label>Year : </label>
+              <input id="Device_Year" />
+            </div>
+            <div class="form-group">
+              <label>Color : </label>
+              <input id="Device_Page_URL" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Save</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="Vendor_Services">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h2 class="modal-title text-center">Add Service</h2>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="container-fluid bg-grey" style="display: grid; justify-content: start; justify-items: end;">
+            <div class="form-group">
+              <label>Service Type : </label>
+              <input id="Device_Type" />
+            </div>
+            <div class="form-group">
+              <label>Device Type : </label>
+              <input id="Device_Model" />
+            </div>
+            <div class="form-group">
+              <label>Device Models : </label>
+              <input id="Device_Year" />
+            </div>
+            <div class="form-group">
+              <label>Amount : </label>
+              <input id="Device_ID" />
+            </div>
+            <div class="row">
+              <textarea class="form-control" id="comments" name="comments" placeholder="Service Description"
+                rows="5"></textarea><br>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Save</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#myPage"><img src="hub-icon.png" width="50" height="35"
+            style="padding-bottom: 1px; border-radius: 100%;"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#about">ABOUT</a></li>
+          <li class="active-user" id="Services_Nav"><a href="#services">SERVICES</a></li>
+          <li class="active-user" id="Dev_Hub_Nav"><a href="#devices">DEVICE-HUB</a></li>
+          <li class="active-user" id="Comm_Hub_Nav"><a href="#tickets">MY TICKETS</a></li>
+          <li class="active-user" id="V_devices_Nav"><a href="#V_Devices">DEVICES</a></li>
+          <li class="active-user" id="API_Nav"><a href="#API">APIS</a></li>
+          <li class="active-user" id="V_Services_Nav"><a href="#V_Services">TICKETS</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+          <li class="active-user" id="Sign_Out"><a onclick="SignOut()">SIGN OUT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron text-center">
+    <h1>Whosville Hub</h1>
+    <p>The IoT Hub for the people of Whosville</p>
+    <form>
+      <divclass="input-group" style="display: grid; justify-content: center; grid-template-rows: 1fr 1fr 1fr;">
+        <div class="grid-container-element" style="grid-template-columns: 1fr 1fr; display: grid; z-index: 1;">
+          <button id="sign-in-btn1" type="button" class="btn btn-danger grid-child-element" data-bs-toggle="modal"
+            data-bs-target="#User-Sign-in">I am a User</button>
+          <button id="sign-in-btn2" type="button" class="btn btn-danger grid-child-element" data-bs-toggle="modal"
+            data-bs-target="#Vendor-Sign-in">I am a Vendor</button>
+        </div>
+
+        <div id="user-signin-btns" class="grid-container-element active-user column-display" style="z-index: 1;">
+          <button type="button" class="btn btn-danger grid-child-element" data-bs-toggle="modal"
+            data-target=".bd-example-modal-lg" data-bs-target="#User_Profile">Update User Profile</button>
+          <button type="button" class="btn btn-danger grid-child-element" data-bs-toggle="modal"
+            data-target=".bd-example-modal-lg" data-bs-target="#User_Devices">Add New Device</button>
+          <button type="button" class="btn btn-danger grid-child-element" data-bs-toggle="modal"
+            data-target=".bd-example-modal-lg" data-bs-target="#User_Tickets">Create Support Ticket</button>
+        </div>
+        <div id="vendor-signin-btns" class="grid-container-element active-vendor column-display" style="z-index: 1;">
+          <button type="button" class="btn btn-danger grid-child-element" data-bs-toggle="modal"
+            data-target=".bd-example-modal-lg" data-bs-target="#Vendor_Devices">Add Device</button>
+          <button type="button" class="btn btn-danger grid-child-element" data-bs-toggle="modal"
+            data-target=".bd-example-modal-lg" data-bs-target="#Vendor_APIs">Add API</button>
+          <button type="button" class="btn btn-danger grid-child-element" data-bs-toggle="modal"
+            data-target=".bd-example-modal-lg" data-bs-target="#Vendor_Services">Add Service</button>
+        </div>
+
+    </form>
+  </div>
+
+  <!-- Container (RSS feed carousel) -->
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol><br>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <h4>"Summer Picnic Event at the Whosville Park today between 3 - 7 PM !"<br><span>@Parks&Recreation</span>
+        </h4>
+      </div>
+      <div class="item">
+        <h4>"Avoid the City Center due to a Protest rally between 2 - 4 PM."<br><span>@WhosvillePolice</span></h4>
+      </div>
+      <div class="item">
+        <h4>"Water connection disruption the Whosville Gardens community between 3 - 4 PM for
+          maintenance."<br><span>@UtilityCompany</span></h4>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <!-- Container (About Section) -->
+  <div id="about" class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8" style="padding: 50px;">
+        <h2 style="font-size: 21px; color: rgb(20, 94, 71);">Connect your Applicances and Vendor services in one place!
+        </h2><br>
+        <!-- <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br> -->
+        <p style="color: rgb(20, 94, 71);">Meet your new present and future resource for public safety resources in
+          Whosville! Our app has everything
+          you need to about public safety in Whosville including: emergency services, news articles, traffic updates,
+          and every other situation that might come your way. As a citizen of Whosville you can rest assured that your
+          safety will come first.
+          When using your app; if there's ever a need to pay for any of the services you can do that through your app.
+          Your app uses MFA to make sure you are you. We have made sure that your app has all the proper security
+          featured and adheres to all cybersecurity protocols outlined in NIST and PCI DSS. So, no matter where you are
+          in the app we have you covered.
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <!-- <span class="glyphicon glyphicon-signal logo"></span> -->
+        <img src="hub-icon.png" width="300" height="300">
+      </div>
+    </div>
+  </div>
+
+  <!-- Container (Mission Section) -->
+  <div class="container-fluid bg-grey">
+    <div class="row">
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-lock logo slideanim"></span>
+      </div>
+      <div class="col-sm-8">
+        <h2>Security Policy</h2><br>
+        <p>We understand that problems can occur from time to time. If you have experienced or are experiencing
+          difficulties in using our app please feel free to contact us via email at security-whosvilleapp@outlook.com
+          any time and we will respond back to you ASAP. We value the residents of Whosville and will work diligently to
+          ensure our product serves your town for years to come and surpasses your expectations. This is your app to
+          keep you informed of public issues in Whosville. From town government to town information and emergency
+          services and everything in between this app will help you find what you need.
+          We, the developers, of this app understand that your information is sensitive and yours. We will use the best
+          security practices to ensure the safety of your information while using our app. When processing your payment
+          method you can rest assured that we strictly abide by the principles and standards of PCI DSS. All other
+          information will be safeguarded in accordance to NIST. All of this is to keep your information safe to you. If
+          you would like to read what these standards are in detail the links to these sets of standards are below. We
+          truly believe you will have a great experience each and every time on our app. If you are experiencing any
+          problems with your app please visit our security policy page on reporting protocol and we will address your
+          concerns ASAP.</p>
+        <a href="https://www.nist.gov/cyberframework/framework" target="_blank">NIST:
+          https://www.nist.gov/cyberframework/framework</a><br>
+        <a href="https://www.bsigroup.com/en-US/payment-card-industry-data-security-standard/" target="_blank">PCI DSS:
+          https://www.bsigroup.com/en-US/payment-card-industry-data-security-standard/</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container (Services Section) -->
+  <div id="services" class="container-fluid text-center active-user">
+    <h2>SERVICES</h2>
+    <!-- <h4>One-stop shop for all your Appliance and Utility Services</h4> -->
+    <br>
+    <div class="row slideanim">
+      <div class="col-sm-4">
+        <a href="https://nj.pseg.com/" target="_blank"><span class="glyphicon glyphicon-off logo-small"></span></a>
+        <h4>Power and Gas Utilities</h4>
+      </div>
+      <div class="col-sm-4">       
+        <a href="https://princetonfitnessandwellness.com/" target="_blank"><span class="glyphicon glyphicon-heart logo-small"></span></a>
+        <h4>Fitness and Wellness</h4>
+      </div>
+      <div class="col-sm-4">
+        <a href="https://tigercard.princeton.edu/other-cardsservices/passport-and-notary-services" target="_blank"><span class="glyphicon glyphicon-lock logo-small"></span></a>
+        <h4>Documentation and Identity Services</h4>
+      </div>
+    </div>
+    <br><br>
+    <div class="row slideanim">
+      <div class="col-sm-4">
+        <a href="https://www.state.nj.us/nj/things/parks/" target="_blank"><span class="glyphicon glyphicon-leaf logo-small"></span></a>
+        <h4>Parks and Recreation</h4>
+      </div>
+      <div class="col-sm-4">
+        <a href="https://www.google.com" target="_blank"><span class="glyphicon glyphicon-certificate logo-small"></span></a>
+        <h4>Fire and Police</h4>
+      </div>
+      <div class="col-sm-4">
+        <a href="https://amazonairpro.com/air-duct-cleaning//" target="_blank"><span class="glyphicon glyphicon-wrench logo-small"></span></a>
+        <h4>Appliance Service</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container (Devices Section) -->
+  <div id="devices" class="container-fluid active-user">
+    <div class="text-center">
+      <h2>My Devices</h2>
+      <h4>Registered IoT Devices</h4>
+    </div>
+    <div id="User-Sign-in-card" class="row slideanim">
+      <div class="col-sm-4 col-xs-12" id="Device_1">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading" style="padding: 10px;">
+            <h3>Refrigerator</h3>
+          </div>
+          <div class="panel-body text-center">
+            <p><strong>Vendor : </strong> Samsung</p>
+            <p><strong>Model # : </strong> HJH89HKJLK-78K</p>
+            <p><strong>Year : </strong> 2019</p>
+            <p><strong>Last Service : </strong> 05/11/2022</p>
+            <p><strong>Connectivity : </strong> Good!</p>
+          </div>
+          <div class="panel-footer">
+            <h3>Alerts</h3>
+            <h4 style="color: coral; font-weight: 800;">5 Warnings / 1 Error</h4>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger" style="float: right; background-color: brown;" onclick="Remove_1()">Remove
+              Device</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12" id="Device_2">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading" style="padding: 10px;">
+            <h3>Washer / Dryer</h3>
+          </div>
+          <div class="panel-body text-center">
+            <p><strong>Vendor : </strong> Whirlpool</p>
+            <p><strong>Model # : </strong> 118NE</p>
+            <p><strong>Year : </strong> 2021</p>
+            <p><strong>Last Service : </strong> 03/01/2021</p>
+            <p><strong>Connectivity : </strong> No Connection in past 4 days</p>
+          </div>
+          <div class="panel-footer">
+            <h3>Alerts</h3>
+            <h4 style="color: coral; font-weight: 800;">0 Warnings / 0 Error</h4>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger" style="float: right; background-color: brown;" onclick="Remove_2()">Remove
+              Device</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12" id="Device_3">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading" style="padding: 10px;">
+            <h3>HVAC</h3>
+          </div>
+          <div class="panel-body text-center">
+            <p><strong>Vendor : </strong> Rheem</p>
+            <p><strong>Model # : </strong> LK2389JKLJ</p>
+            <p><strong>Year : </strong> 2011</p>
+            <p><strong>Last Service : </strong> 05/01/2021</p>
+            <p><strong>Connectivity : </strong> No Connection in past 30 days</p>
+          </div>
+          <div class="panel-footer">
+            <h3>Alerts</h3>
+            <h4 style="color: coral; font-weight: 800;">1 Warnings / 0 Error</h4>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger" style="float: right; background-color: brown;" onclick="Remove_3()">Remove
+              Device</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12" id="Device_4">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading" style="padding: 10px;">
+            <h3>Dish Washer</h3>
+          </div>
+          <div class="panel-body text-center">
+            <p><strong>Vendor : </strong> LG</p>
+            <p><strong>Model # : </strong> HJH678</p>
+            <p><strong>Year : </strong> 2019</p>
+            <p><strong>Last Service : </strong> 05/01/2022</p>
+            <p><strong>Connectivity : </strong> Good!</p>
+          </div>
+          <div class="panel-footer">
+            <h3>Alerts</h3>
+            <h4 style="color: coral; font-weight: 800;">5 Warnings / 1 Error</h4>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger" style="float: right; background-color: brown;" onclick="Remove_4()">Remove
+              Device</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container (Tickets Section) -->
+  <div id="tickets" class="container-fluid text-center bg-grey active-user">
+
+    <h2>My Open Tickets</h2>
+    <div class="column text-center slideanim">
+      <div class="col-sm-4" id="Ticket_1">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">Ticket # : 23HL32LKJ2</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>Vendor : </strong> Samsung</p>
+              <p><strong>Device : </strong> Refrigerator</p>
+            </div>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger">Make a Payment</button>
+            <button class="btn btn-danger" onclick="Remove_T1()">Mark Complete</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" id="Ticket_2">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">Ticket # : SLDKJ888</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>Vendor : </strong> APEX Heating & Cooling</p>
+              <p><strong>Device : </strong> HVAC</p>
+            </div>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger">Make a Payment</button>
+            <button class="btn btn-danger" onclick="Remove_T2()">Mark Complete</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" id="Ticket_3">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">Ticket # : sdl89j99</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>Vendor : </strong> LG</p>
+              <p><strong>Device : </strong> Washer</p>
+            </div>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger">Make a Payment</button>
+            <button class="btn btn-danger" onclick="Remove_T3()">Mark Complete</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" id="Ticket_4">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">Ticket # : 230-789JK</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>Vendor : </strong> ABC Inc.</p>
+              <p><strong>Device : </strong> Work request</p>
+            </div>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger">Make a Payment</button>
+            <button class="btn btn-danger" onclick="Remove_T4()">Mark Complete</button>
+          </div>
+        </div>
+      </div>
+    </div><br>
+
+  </div>
+
+  <!-- Container (Vendor Devices Section) -->
+  <div id="V_Devices" class="container-fluid text-center bg-grey active-user">
+
+    <h2>Devices</h2>
+    <div class="column text-center slideanim">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">Refrigerator</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>Number of Models : </strong> 15</p>
+              <p><strong>Total registered Devices : </strong> 13007</p>
+            </div>
+            <button class="btn btn-danger">View Models</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">Washer / Dryer</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>Number of Models : </strong> 9</p>
+              <p><strong>Total registered Devices : </strong> 11568</p>
+            </div>
+            <button class="btn btn-danger">View Models</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">Dish Washer</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>Number of Models : </strong> 6</p>
+              <p><strong>Total registered Devices : </strong> 7026</p>
+            </div>
+            <button class="btn btn-danger">View Models</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">Vaccum Cleaner</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>Number of Models : </strong> 3</p>
+              <p><strong>Total registered Devices : </strong> 400</p>
+            </div>
+            <button class="btn btn-danger">View Models</button>
+          </div>
+        </div>
+      </div>
+    </div><br>
+
+  </div>
+
+  <!-- Container (APIs Section) -->
+  <div id="API" class="container-fluid text-center bg-grey active-user">
+
+    <h2>APIs</h2>
+    <div class="column text-center slideanim">
+      <div class="col-sm-4" id="API_1">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">ID : API_Error_View_V2.8</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>URL : </strong> http://samsung.com/api/showError/cxml.asp</p>
+              <p><strong>Description : </strong> Shows Error code description by appliance</p>
+              <p><strong id = "API_Status_1">Status : Active</strong></p>
+            </div>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger" id = "API_Btn_1" onclick="Toggle_API_1()">Mark Inactive</button>
+            <button class="btn btn-danger" style="background-color: brown;" onclick="Remove_API_1()">Remove
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" id="API_2">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">ID : API_Power_Usage_rates_V3.1</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>URL : </strong> http://samsung.com/api/PowerUsage/cxml.asp</p>
+              <p><strong>Description : </strong> Shows Electricity and Gas usage trend by appliance</p>
+              <p><strong id = "API_Status_2">Status : Active</strong></p>
+            </div>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger" id = "API_Btn_2" onclick="Toggle_API_2()">Mark Inactive</button>
+            <button class="btn btn-danger" style="background-color: brown;" onclick="Remove_API_2()">Remove
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" id="API_3">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">ID : API_DryerVent_V1.1</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>URL : </strong> http://samsung.com/api/DryerVent/cxml.asp</p>
+              <p><strong>Description : </strong> Shows Dryer Vent outflow to detect blockage</p>
+              <p><strong id = "API_Status_3">Status : Active</strong></p>
+            </div>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger" id = "API_Btn_3" onclick="Toggle_API_3()">Mark Inactive</button>
+            <button class="btn btn-danger" style="background-color: brown;" onclick="Remove_API_3()">Remove
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" id="API_4">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">ID : API_Service_ticket_Status_V2.3</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>URL : </strong> http://samsung.com/api/Service_ticket/cxml.asp</p>
+              <p><strong>Description : </strong> Shows status / updates on Service tickets</p>
+              <p><strong id = "API_Status_4">Status : Active</strong></p>
+            </div>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger" id = "API_Btn_4" onclick="Toggle_API_4()">Mark Inactive</button>
+            <button class="btn btn-danger" style="background-color: brown;" onclick="Remove_API_4()">Remove
+          </div>
+        </div>
+      </div>
+    </div><br>
+
+  </div>
+
+  <!-- Container (Vendor Services Section) -->
+  <div id="V_Services" class="container-fluid text-center bg-grey active-user">
+
+    <h2>View Open Requests</h2>
+    <div class="column text-center slideanim">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">Ticket # : Samsung_Fridge_121</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>Request Date : </strong> 7/1/2022</p>
+              <p><strong>Model #: </strong> SMSFRDG123</p>
+            </div>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger">Contact User</button>
+            <button class="btn btn-danger">Mark Resolved</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">Ticket # : Samsung_Washer_007</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>Request Date : </strong> 7/10/2022</p>
+              <p><strong>Model # : </strong> SMSWSH345</p>
+            </div>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger">Contact User</button>
+            <button class="btn btn-danger">Mark Resolved</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">Ticket # : Samsung_Washer_008</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>Request Date : </strong> 7/11/2022</p>
+              <p><strong>Model # : </strong> SMSWSD777</p>
+            </div>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger">Contact User</button>
+            <button class="btn btn-danger">Mark Resolved</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading-2">
+              <h4 style="color: rgb(20, 94, 71);">Ticket # : Samsung_Vaccum_008</h4>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>Request Date : </strong> 6/28/2022</p>
+              <p><strong>Model # : </strong> SMSVCC9</p>
+            </div>
+            <button class="btn btn-danger">View Details</button>
+            <button class="btn btn-danger">Contact User</button>
+            <button class="btn btn-danger">Mark Resolved</button>
+          </div>
+        </div>
+      </div>
+    </div><br>
+
+  </div>
+
+  <!-- Container (Contact Section) -->
+  <div id="contact" class="container-fluid bg-grey">
+    <h2 class="text-center">CONTACT</h2>
+    <div class="row">
+      <div class="col-sm-5">
+        <p>Contact us and we'll get back to you within 24 hours.</p>
+        <p><span class="glyphicon glyphicon-map-marker"></span> Whosville, US</p>
+        <p><span class="glyphicon glyphicon-phone"></span> +1 800-000-0000</p>
+        <p><span class="glyphicon glyphicon-envelope"></span> hub-questions@whosville.org</p>
+      </div>
+      <div class="col-sm-7 slideanim">
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="name" placeholder="Name" type="name" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="email" placeholder="Email" type="email" required>
+          </div>
+        </div>
+        <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <button class="btn btn-default pull-right" type="submit">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="container-fluid text-center">
+    <a href="#myPage" title="To Top">
+      <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+    <p>Back to top</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
